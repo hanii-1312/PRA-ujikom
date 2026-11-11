@@ -45,6 +45,7 @@ class AdminController extends Controller
     public function createAlat()
     {
         $kategoris = Kategori::all();
+        
         return view('admin.alat.create', compact('kategoris'));
     }
 
@@ -143,12 +144,12 @@ class AdminController extends Controller
         ->paginate(10)
         ->withQueryString();
 
-        return view('admin.user.index', compact('users', 'search'));
+        return view('admin.users.index', compact('users', 'search'));
     }
 
     public function createUser()
     {
-        return view('admin.user.create');
+        return view('admin.users.create');
     }
 
     public function storeUser(Request $request)
@@ -169,7 +170,7 @@ class AdminController extends Controller
             'no_hp'    => $request->no_hp,
         ]);
 
-        return redirect()->route('admin.user.index')->with('success', 'User berhasil ditambahkan.');
+        return redirect()->route('admin.users.index')->with('success', 'User berhasil ditambahkan.');
     }
 
     public function editUser($id)
@@ -202,7 +203,7 @@ class AdminController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('admin.user.index')->with('success', 'Data user berhasil diperbarui.');
+        return redirect()->route('admin.users.index')->with('success', 'Data user berhasil diperbarui.');
     }
 
     public function destroyUser($id)
@@ -210,7 +211,7 @@ class AdminController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('admin.user.index')->with('success', 'User berhasil dihapus.');
+        return redirect()->route('admin.users.index')->with('success', 'User berhasil dihapus.');
     }
 
     // CRUD KATEGORI

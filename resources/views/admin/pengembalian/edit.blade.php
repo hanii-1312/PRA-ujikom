@@ -45,7 +45,7 @@
         </div>
 
         <div class="flex justify-end space-x-2">
-            <a href="{{ route('admin.user.index') }}" 
+            <a href="{{ route('admin.users.index') }}" 
                class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg text-sm font-semibold transition">Batal</a>
             <button type="submit" 
                     class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">Perbarui</button>

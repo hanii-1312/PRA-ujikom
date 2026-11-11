@@ -6,14 +6,15 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class IsAdmin
+class IsPeminjam
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user() && $request->user()->role === 'petugas') {
+        // Memeriksa apakah user yang login memiliki role 'peminjam'
+        if ($request->user() && $request->user()->role === 'peminjam') {
             return $next($request);
         }
 
-        return response()->json(['message' => 'Akses ditolak. Anda bukan Admin.'], 403);
+        return response()->json(['message' => 'Akses ditolak. Anda bukan Peminjam.'], 403);
     }
 }

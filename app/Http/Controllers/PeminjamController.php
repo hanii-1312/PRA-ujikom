@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class PeminjamController extends Controller
 {
+    // Tambahan method index untuk halaman Dashboard Peminjam
+    public function index()
+    {
+        return view('peminjam.dashboard');
+    }
+
     // Melihat daftar/katalog alat yang tersedia
     public function katalogAlat()
     {
